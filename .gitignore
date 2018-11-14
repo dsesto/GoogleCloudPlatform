@@ -1,0 +1,11 @@
+/Dataflow/src/main/java/CMD_Test.java
+/Dataflow/src/main/java/PublishPubSubMessages.java
+/Dataflow/src/main/java/TaxiData.java
+/Dataflow/src/main/java/TaxiData_SeparateDoFn.java
+/Dataflow/src/main/java/MinimalPipeline.java
+/Dataflow/src/main/resources/
+/Dataflow/src/test/
+/Dataflow/.idea/
+/Dataflow/target/
+/Dataflow/Dataflow.iml
+/.idea/
