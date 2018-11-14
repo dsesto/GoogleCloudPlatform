@@ -4,21 +4,21 @@ This repository contains a small set of [Cloud Dataflow](https://cloud.google.co
 Up to now, this repository consists of 4 samples (each of which is an extension of the previous one) that explain the step-by-step process to build a Streaming Pipeline (using the Java Apache Beam SDK) that reads messages from [Pub/Sub](https://cloud.google.com/pubsub/) (the publisher-subscriber GCP product) and writes some output to [BigQuery](https://cloud.google.com/bigquery/) (a well-known serverless data warehouse GCP service). Some modifications are being applied in each of the samples so that the complexity of the pipeline increases, ending up with a code that reads both from a Main Input and a [Side Input](https://beam.apache.org/documentation/programming-guide/#side-inputs), and also writes to [multiple destinations](https://beam.apache.org/documentation/programming-guide/#additional-outputs).
 
 ## Run instructions
-#### GCP project-specific resources
+### GCP project-specific resources
 The helper class **GCP_Resources** just includes a list of the project-specific resources in your GCP Project (Pub/Sub subscription and BigQuery tables). You should modify the placeholders in order to match your resources.
 
-#### Pipeline execution
+### Pipeline execution
 The streaming pipeline can be run locally (using Direct Runner) for testing purposes:
 `mvn compile exec:java -Dexec.mainClass=[CLASS_TO_EXECUTE] -Dexec.args="--tempLocation=gs://[BUCKET]/tmp --project=[PROJECT_ID]"`
 
 Or remotely, in the Dataflow service (with the Dataflow Runner):
 `mvn compile exec:java -Dexec.mainClass=[CLASS_TO_EXECUTE] -Dexec.args="--jobName=[JOB_NAME] --tempLocation=gs://[BUCKET]/tmp --project=[PROJECT_ID] --runner=DataflowRunner" -Pdataflow-runner`
 
-#### Pub/Sub message publication
+### Pub/Sub message publication
 You can use the [Google Cloud SDK](https://cloud.google.com/sdk/gcloud/reference/pubsub/topics/publish) in order to publish a message to Pub/Sub, like below, being `[TOPIC]` your Pub/Sub topic, and `[MESSAGE]` simply a figure representing a grade (*1* to *5*):
 `gcloud pubsub topics publish [TOPIC] --message=[MESSAGE]`
 
-#### BigQuery data
+### BigQuery data
 The BigQuery input table should look like:
 ```
 | mark |     satisfaction      |
